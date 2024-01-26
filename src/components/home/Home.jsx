@@ -1,5 +1,5 @@
 import Header from "./Header";
-import "../../App.css"
+import "./Home.css"
 function Home() {
     return (
         <>
