@@ -1,4 +1,11 @@
-function Login() {
+//import {toggleForm} from "../helpers/helpers.js";
+// eslint-disable-next-line react/prop-types
+function Login({isLogin,setLogin,isRegister,setRegister}) {
+
+    const toggleForm = () => {
+        setRegister(!isRegister);
+        setLogin(!isLogin);
+    };
 
     return (
         <>
@@ -6,13 +13,13 @@ function Login() {
             {/*Email input*/}
             <div className="form-outline mb-4">
                 <input type="email" id="form2Example1" className="form-control email" required />
-                <label className="form-label" for="form2Example1">Email address</label>
+                <label className="form-label" form="form2Example1">Email adres</label>
             </div>
 
             {/*Password input*/}
             <div className="form-outline mb-4">
                 <input type="password" id="form2Example2" className="form-control" required />
-                <label className="form-label" for="form2Example2">Password</label>
+                <label className="form-label" form="form2Example2">Wachtwoord</label>
             </div>
 
             {/*2 column grid layout for inline styling*/}
@@ -20,14 +27,14 @@ function Login() {
                 <div className="col d-flex justify-content-center">
                     {/*Checkbox*/}
                     <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                        <label className="form-check-label" for="form2Example31"> Onthoud mij </label>
+                        <input className="form-check-input" type="checkbox" value="" id="form2Example3" checked />
+                        <label className="form-check-label" form="form2Example3"> Onthoud mij </label>
                     </div>
                 </div>
 
                 <div className="col">
                     {/*Simple link*/}
-                    <a href="#!">Wachtwoord vergeten?</a>
+                    <span>Wachtwoord vergeten?</span>
                 </div>
             </div>
 
@@ -36,7 +43,7 @@ function Login() {
 
             {/*Register buttons*/}
             <div className="text-center">
-                <p>Geen account? <a href="#!">Registreer</a></p>
+                <p>Geen account? <span className="btn btn-primary" onClick={toggleForm}>Registreer</span></p>
             </div>
             </form>
         </>
