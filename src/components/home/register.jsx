@@ -1,4 +1,5 @@
 import {useState} from "react";
+
 // eslint-disable-next-line react/prop-types
 function Register({isLogin, setLogin, isRegister, setRegister}) {
 
@@ -39,6 +40,7 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
             return 'weak';
         }
     }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -47,11 +49,11 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
             if (email !== confirmEmail) {
                 alert('Emails zijn niet het zelfde');
                 return;
-            }else{
+            } else {
                 const strength = checkPasswordStrength(password);
 
-                if(strength == 'weak'){
-                    alert('Wachtwoord is te zwak /n Gebruik minimaal 8 characters die tenminste 1 hoofdletter/kleine letter en speciale teken bevat.');
+                if (strength == 'weak') {
+                    alert('Wachtwoord is te zwak. Gebruik minimaal 8 characters wat tenminste 1 hoofdletter, 1 kleineletter en 1 speciale teken bevat.');
                 }
             }
         } else {
@@ -96,38 +98,48 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
             <form onSubmit={handleSubmit}>
                 {/*Email input*/}
                 <div className="form-outline mb-4">
-                    <input type="email"
+                    <input type="name"
                            id="form2Example1"
+                           className="form-control name"
+                           value={name}
+                           onChange={(e) => setName(e.target.value)}
+                           required
+                    />
+                    <label className="form-label" htmlFor="form2Example1">Naam</label>
+                </div>
+                <div className="form-outline mb-4">
+                    <input type="email"
+                           id="form2Example2"
                            className="form-control email"
                            value={email}
                            onChange={(e) => setEmail(e.target.value)}
                            required
                     />
-                    <label className="form-label" form="form2Example1">Email adres</label>
+                    <label className="form-label" htmlFor="form2Example2">Email adres</label>
                 </div>
 
                 {/*Confirm Email input*/}
                 <div className="form-outline mb-4">
                     <input type="email"
-                           id="form2Example2"
+                           id="form2Example3"
                            className="form-control email"
                            value={confirmEmail}
                            onChange={(e) => setConfirmEmail(e.target.value)}
                            required
                     />
-                    <label className="form-label" form="form2Example2">Bevestig email adres</label>
+                    <label className="form-label" htmlFor="form2Example3">Bevestig email adres</label>
                 </div>
 
                 {/*Password input*/}
                 <div className="form-outline mb-4">
                     <input type="password"
-                           id="form2Example3"
+                           id="form2Example4"
                            className="form-control"
                            value={password}
                            onChange={(e) => setPassword(e.target.value)}
                            required
                     />
-                    <label className="form-label" form="form2Example3">Wachtwoord</label>
+                    <label className="form-label" htmlFor="form2Example4">Wachtwoord</label>
                 </div>
 
                 {/*Submit button*/}
