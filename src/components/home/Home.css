@@ -63,17 +63,12 @@ a:hover {
 #hamburger--btn {
     display: none;
 }
+.btn:hover {
+    cursor: pointer;
+}
 .btn-primary {
-    --mdb-btn-bg: #3b71ca;
-    --mdb-btn-color: #fff;
-    --mdb-btn-box-shadow: 0 4px 9px -4px #386bc0;
-    --mdb-btn-hover-bg: #386bc0;
-    --mdb-btn-hover-color: #fff;
-    --mdb-btn-focus-bg: #386bc0;
-    --mdb-btn-focus-color: #fff;
-    --mdb-btn-active-bg: #3566b6;
-    --mdb-btn-active-color: #fff;
-    --mdb-btn-box-shadow-state: 0 8px 9px -4px rgba(56, 107, 192, 0.3), 0 4px 18px 0 rgba(56, 107, 192, 0.2);
+    padding: 0 15px;
+    border-radius: 0.25rem;
 }
 
 /*////////////////////////
@@ -176,23 +171,34 @@ header {
     min-height: 290px;
     margin-top: -340px;*/
 }
-.loginForm {
-    display: flex;
-    flex-direction: column;
+.forms {
     visibility: hidden;
+    width:300px;
+    padding: 15px;
     opacity: 0;
     transition: opacity 1s ease-in;
     position: absolute;
     top: 100px;
     right: 20px;
 }
-.loginForm.login_open {
+.forms.form_open {
     visibility: visible;
     opacity: 1;
     z-index: 3;
-    padding: 15px;
     background-color: #afc1ba96;
     border-radius: 5px;
+}
+.loginForm, .registerForm {
+    display: none;
+    padding: 15px;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+.loginForm.login_open, .registerForm.register_open{
+    display: initial;
+    opacity: 1;
+    z-index: 3;
 }
 form {
     display: block;
