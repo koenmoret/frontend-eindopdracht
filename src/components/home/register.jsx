@@ -1,8 +1,9 @@
-import {useState} from "react";
 import {toggleForm} from "../helpers/helpers.js";
+
 // eslint-disable-next-line react/prop-types
 function Register({isLogin, setLogin, isRegister, setRegister}) {
 
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -40,16 +41,24 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
             return 'weak';
         }
     }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        const values = {
+            name: name,
+            email: email,
+            password: password
+        }
 
         // Check if the email and confirm email match and is valid
         if (validateEmail(email)) {
             if (email !== confirmEmail) {
                 alert('Emails zijn niet het zelfde');
                 return;
-            }else{
+            } else {
                 const strength = checkPasswordStrength(password);
+
 
                 if(strength === 'weak'){
                     alert('Wachtwoord is te zwak /n Gebruik minimaal 8 characters die tenminste 1 hoofdletter/kleine letter en speciale teken bevat.');
@@ -60,19 +69,19 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
             return;
         }
 
-
         // Send a request to your server to register the user
         try {
-            const response = await fetch('/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email,
-                    password,
-                }),
-            });
+
+            axios.post('http://localhost:8081/users', values)
+                .then(res=>console.log(res))
+                .catch(err => console.log(err))
+            toggleForm();
+        } catch (error) {
+            console.error('Error during registration:', error);
+            alert('Error during registration');
+        }
+    };
+
 
             if (response.ok) {
                 alert('Registration successful');
@@ -92,38 +101,48 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
             <form onSubmit={handleSubmit}>
                 {/*Email input*/}
                 <div className="form-outline mb-4">
-                    <input type="email"
+                    <input type="name"
                            id="form2Example1"
+                           className="form-control name"
+                           value={name}
+                           onChange={(e) => setName(e.target.value)}
+                           required
+                    />
+                    <label className="form-label" htmlFor="form2Example1">Naam</label>
+                </div>
+                <div className="form-outline mb-4">
+                    <input type="email"
+                           id="form2Example2"
                            className="form-control email"
                            value={email}
                            onChange={(e) => setEmail(e.target.value)}
                            required
                     />
-                    <label className="form-label" form="form2Example1">Email adres</label>
+                    <label className="form-label" htmlFor="form2Example2">Email adres</label>
                 </div>
 
                 {/*Confirm Email input*/}
                 <div className="form-outline mb-4">
                     <input type="email"
-                           id="form2Example2"
+                           id="form2Example3"
                            className="form-control email"
                            value={confirmEmail}
                            onChange={(e) => setConfirmEmail(e.target.value)}
                            required
                     />
-                    <label className="form-label" form="form2Example2">Bevestig email adres</label>
+                    <label className="form-label" htmlFor="form2Example3">Bevestig email adres</label>
                 </div>
 
                 {/*Password input*/}
                 <div className="form-outline mb-4">
                     <input type="password"
-                           id="form2Example3"
+                           id="form2Example4"
                            className="form-control"
                            value={password}
                            onChange={(e) => setPassword(e.target.value)}
                            required
                     />
-                    <label className="form-label" form="form2Example3">Wachtwoord</label>
+                    <label className="form-label" htmlFor="form2Example4">Wachtwoord</label>
                 </div>
 
                 {/*Submit button*/}

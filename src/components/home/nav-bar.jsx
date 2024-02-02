@@ -1,5 +1,3 @@
-import {useState} from "react";
-
 // eslint-disable-next-line react/prop-types
 function Navbar({isNav,setNav,isForm,setForm}) {
 
