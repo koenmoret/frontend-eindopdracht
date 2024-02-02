@@ -1,6 +1,6 @@
 import {toggleForm} from "../helpers/helpers.js";
 import axios from "axios";
-
+import {useState} from "react";
 // eslint-disable-next-line react/prop-types
 function Register({isLogin, setLogin, isRegister, setRegister}) {
 
