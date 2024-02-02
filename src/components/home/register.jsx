@@ -1,8 +1,10 @@
 import {useState} from "react";
+import axios from "axios";
 
 // eslint-disable-next-line react/prop-types
 function Register({isLogin, setLogin, isRegister, setRegister}) {
 
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -44,6 +46,12 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        const values = {
+            name: name,
+            email: email,
+            password: password
+        }
+
         // Check if the email and confirm email match and is valid
         if (validateEmail(email)) {
             if (email !== confirmEmail) {
@@ -52,8 +60,9 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
             } else {
                 const strength = checkPasswordStrength(password);
 
-                if (strength == 'weak') {
+                if (strength === 'weak') {
                     alert('Wachtwoord is te zwak. Gebruik minimaal 8 characters wat tenminste 1 hoofdletter, 1 kleineletter en 1 speciale teken bevat.');
+                    return;
                 }
             }
         } else {
@@ -61,31 +70,16 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
             return;
         }
 
-
         // Send a request to your server to register the user
-        // try {
-        //     const response = await fetch('/api/register', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //             email,
-        //             password,
-        //         }),
-        //     });
-        //
-        //     if (response.ok) {
-        //         alert('Registration successful');
-        //         // You may redirect the user to a login page or perform other actions after successful registration
-        //     } else {
-        //         alert('Registration failed');
-        //         // Handle the case where registration failed
-        //     }
-        // } catch (error) {
-        //     console.error('Error during registration:', error);
-        //     alert('Error during registration');
-        // }
+        try {
+            axios.post('http://localhost:8081/users', values)
+                .then(res=>console.log(res))
+                .catch(err => console.log(err))
+            toggleForm();
+        } catch (error) {
+            console.error('Error during registration:', error);
+            alert('Error during registration');
+        }
     };
 
     const toggleForm = () => {
