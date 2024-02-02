@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {toggleForm} from "../helpers/helpers.js";
 // eslint-disable-next-line react/prop-types
 function Register({isLogin, setLogin, isRegister, setRegister}) {
 
@@ -50,7 +51,7 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
             }else{
                 const strength = checkPasswordStrength(password);
 
-                if(strength == 'weak'){
+                if(strength === 'weak'){
                     alert('Wachtwoord is te zwak /n Gebruik minimaal 8 characters die tenminste 1 hoofdletter/kleine letter en speciale teken bevat.');
                 }
             }
@@ -61,34 +62,29 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
 
 
         // Send a request to your server to register the user
-        // try {
-        //     const response = await fetch('/api/register', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //             email,
-        //             password,
-        //         }),
-        //     });
-        //
-        //     if (response.ok) {
-        //         alert('Registration successful');
-        //         // You may redirect the user to a login page or perform other actions after successful registration
-        //     } else {
-        //         alert('Registration failed');
-        //         // Handle the case where registration failed
-        //     }
-        // } catch (error) {
-        //     console.error('Error during registration:', error);
-        //     alert('Error during registration');
-        // }
-    };
+        try {
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                }),
+            });
 
-    const toggleForm = () => {
-        setRegister(!isRegister);
-        setLogin(!isLogin);
+            if (response.ok) {
+                alert('Registration successful');
+                // You may redirect the user to a login page or perform other actions after successful registration
+            } else {
+                alert('Registration failed');
+                // Handle the case where registration failed
+            }
+        } catch (error) {
+            console.error('Error during registration:', error);
+            alert('Error during registration');
+        }
     };
 
     return (
@@ -135,7 +131,7 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
 
                 {/*Register buttons*/}
                 <div className="text-center">
-                    <p>Al een account? <span className="btn btn-primary" onClick={toggleForm}>Inloggen</span></p>
+                    <p>Al een account? <span className="btn btn-primary" onClick={() => toggleForm(isLogin, setLogin, isRegister, setRegister)}>Inloggen</span></p>
                 </div>
             </form>
         </>

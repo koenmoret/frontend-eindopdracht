@@ -1,11 +1,6 @@
-//import {toggleForm} from "../helpers/helpers.js";
+import {toggleForm} from "../helpers/helpers.js";
 // eslint-disable-next-line react/prop-types
 function Login({isLogin,setLogin,isRegister,setRegister}) {
-
-    const toggleForm = () => {
-        setRegister(!isRegister);
-        setLogin(!isLogin);
-    };
 
     return (
         <>
@@ -43,7 +38,7 @@ function Login({isLogin,setLogin,isRegister,setRegister}) {
 
             {/*Register buttons*/}
             <div className="text-center">
-                <p>Geen account? <span className="btn btn-primary" onClick={toggleForm}>Registreer</span></p>
+                <p>Geen account? <span className="btn btn-primary" onClick={() => toggleForm(isRegister,setRegister,isLogin,setLogin)}>Registreer</span></p>
             </div>
             </form>
         </>
