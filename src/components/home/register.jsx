@@ -1,4 +1,5 @@
 import {toggleForm} from "../helpers/helpers.js";
+import axios from "axios";
 
 // eslint-disable-next-line react/prop-types
 function Register({isLogin, setLogin, isRegister, setRegister}) {
@@ -82,20 +83,6 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
         }
     };
 
-
-            if (response.ok) {
-                alert('Registration successful');
-                // You may redirect the user to a login page or perform other actions after successful registration
-            } else {
-                alert('Registration failed');
-                // Handle the case where registration failed
-            }
-        } catch (error) {
-            console.error('Error during registration:', error);
-            alert('Error during registration');
-        }
-    };
-
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -154,7 +141,7 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
                 </div>
             </form>
         </>
-    );
+    )
 }
 
 export default Register;
