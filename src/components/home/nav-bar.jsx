@@ -1,8 +1,13 @@
+import {useState} from "react";
+
 // eslint-disable-next-line react/prop-types
-function Navbar({isNav,setNav}) {
+function Navbar({isNav,setNav,isLogin,setLogin}) {
 
     const toggleMenu = () => {
         setNav(!isNav);
+    };
+    const toggleLoginForm = () => {
+        setLogin(!isLogin);
     };
 
     return (
@@ -13,7 +18,7 @@ function Navbar({isNav,setNav}) {
                         <li><a href="/" className="nav-item">Home</a></li>
                         <li><a href="#" className="nav-item">Boeken</a></li>
                         <li><a href="#" className="nav-item">Kaart</a></li>
-                        <li><a href="/login" className="nav-item">Login</a></li>
+                        <li><span className="nav-item" onClick={toggleLoginForm}>Login</span></li>
                     </ul>
                 </nav>
                 <div id="menuToggler" onClick={toggleMenu}>
