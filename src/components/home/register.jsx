@@ -1,5 +1,4 @@
-import {useState} from "react";
-import axios from "axios";
+import {toggleForm} from "../helpers/helpers.js";
 
 // eslint-disable-next-line react/prop-types
 function Register({isLogin, setLogin, isRegister, setRegister}) {
@@ -60,9 +59,9 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
             } else {
                 const strength = checkPasswordStrength(password);
 
-                if (strength === 'weak') {
-                    alert('Wachtwoord is te zwak. Gebruik minimaal 8 characters wat tenminste 1 hoofdletter, 1 kleineletter en 1 speciale teken bevat.');
-                    return;
+
+                if(strength === 'weak'){
+                    alert('Wachtwoord is te zwak /n Gebruik minimaal 8 characters die tenminste 1 hoofdletter/kleine letter en speciale teken bevat.');
                 }
             }
         } else {
@@ -72,6 +71,7 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
 
         // Send a request to your server to register the user
         try {
+
             axios.post('http://localhost:8081/users', values)
                 .then(res=>console.log(res))
                 .catch(err => console.log(err))
@@ -82,9 +82,18 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
         }
     };
 
-    const toggleForm = () => {
-        setRegister(!isRegister);
-        setLogin(!isLogin);
+
+            if (response.ok) {
+                alert('Registration successful');
+                // You may redirect the user to a login page or perform other actions after successful registration
+            } else {
+                alert('Registration failed');
+                // Handle the case where registration failed
+            }
+        } catch (error) {
+            console.error('Error during registration:', error);
+            alert('Error during registration');
+        }
     };
 
     return (
@@ -141,7 +150,7 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
 
                 {/*Register buttons*/}
                 <div className="text-center">
-                    <p>Al een account? <span className="btn btn-primary" onClick={toggleForm}>Inloggen</span></p>
+                    <p>Al een account? <span className="btn btn-primary" onClick={() => toggleForm(isLogin, setLogin, isRegister, setRegister)}>Inloggen</span></p>
                 </div>
             </form>
         </>
