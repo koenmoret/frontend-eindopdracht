@@ -25,11 +25,11 @@ function NavBar({isNav, setNav, isForm, setForm, setCart, setClass}) {
                         </li>
                         <li><span className="nav-item" onClick={toggleForm}>Login</span></li>
                         {/* Voeg hier het winkelmandje toe */}
-                        <li>
+                        <li><NavLink to="/checkout">
                             <span className="fa-shopping-cart">
                                 <FaShoppingCart/>
                                 {setCart > 0 && <span className="cart-counter">{setCart}</span>}
-                        </span>
+                        </span></NavLink>
                         </li>
 
                     </ul>

@@ -200,6 +200,7 @@ label {
     3.2 Navigation
     /////////*/
 .header--nav nav {
+    position: relative;
     z-index: 1;
 }
 .header--nav nav ul {
@@ -214,12 +215,16 @@ label {
     color: var(--color-white);
     cursor: pointer;
 }
-.global .fa-shopping-cart svg {
-    fill: var(--color-black);
+.fa-shopping-cart svg {
+    cursor: pointer;
+    fill: var(--color-white);
 }
-.global .cart-counter {
-    color: var(--color-white);
-    background-color: var(--color-black);
+.cart-counter {
+    position: absolute;
+    top: 30px;
+    right: -15px;
+    color: var(--color-black);
+    background-color: var(--color-white);
 }
 
 /*////////////////////////

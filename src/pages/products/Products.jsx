@@ -9,7 +9,7 @@ function Products({setCart, addCart, setKwaliteitCount, countKwaliteit, setArboC
 
     return (
         <>
-            <Header setCart={setCart} setClass="product"/>
+            <Header setCart={setCart} setClass="global"/>
 
             <main className="outer-container">
                 <section className="inner-container products">

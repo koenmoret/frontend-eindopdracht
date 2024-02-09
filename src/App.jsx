@@ -2,6 +2,7 @@ import {Routes, Route} from "react-router-dom";
 //import {useState} from "react";
 import Home from "./pages/home/Home.jsx";
 import Products from "./pages/products/Products.jsx";
+import Checkout from "./pages/checkout/Checkout.jsx";
 import NotFound from "./pages/notFound/NotFound.jsx";
 
 import "./components/global/Global.css"
@@ -19,6 +20,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home setCart={cartItemCount} addCart={setcartItemCount} setKwaliteitCount={setKwaliteitCount} countKwaliteit={countKwaliteit} setArboCount={setArboCount} countArbo={countArbo} setPage="home"/>}/>
                 <Route path="/products" element={<Products setCart={cartItemCount} addCart={setcartItemCount} setKwaliteitCount={setKwaliteitCount} countKwaliteit={countKwaliteit} setArboCount={setArboCount} countArbo={countArbo} setPage="global"/>}/>
+                <Route path="/checkout" element={<Checkout setCart={cartItemCount} />}/>
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
         </>
