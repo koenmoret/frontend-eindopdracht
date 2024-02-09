@@ -7,24 +7,24 @@ function Login({isLogin,setLogin,isRegister,setRegister}) {
             <form>
                 {/*Email input*/}
                 <div className="form-outline mb-4">
-                    <input type="email" id="form2Example1" className="form-control email" required />
-                    <label className="form-label" form="form2Example1">Email adres</label>
+                    <input type="email" id="form2Example5" className="form-control email" required />
+                    <label className="form-label" form="form2Example5">Email adres</label>
                 </div>
 
                 {/*Password input*/}
                 <div className="form-outline mb-4">
-                    <input type="password" id="form2Example2" className="form-control" required />
-                    <label className="form-label" form="form2Example2">Wachtwoord</label>
+                    <input type="password" id="form2Example6" className="form-control" required />
+                    <label className="form-label" form="form2Example6">Wachtwoord</label>
                 </div>
 
                 {/*2 column grid layout for inline styling*/}
                 <div className="row mb-4">
                     <div className="col d-flex justify-content-center">
                         {/*Checkbox*/}
-                        <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="form2Example3" checked />
-                            <label className="form-check-label" form="form2Example3"> Onthoud mij </label>
-                        </div>
+                        {/*<div className="form-check">*/}
+                        {/*    <input className="form-check-input" type="checkbox" value="" id="form2Example3" checked />*/}
+                        {/*    <label className="form-check-label" form="form2Example3"> Onthoud mij </label>*/}
+                        {/*</div>*/}
                     </div>
 
                     <div className="col">
