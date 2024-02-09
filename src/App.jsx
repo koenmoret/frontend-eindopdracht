@@ -17,8 +17,8 @@ function App() {
     return (
         <>
             <Routes>
-                <Route path="/" element={<Home setCart={cartItemCount} addCart={setcartItemCount} setKwaliteitCount={setKwaliteitCount} countKwaliteit={countKwaliteit} setArboCount={setArboCount} countArbo={countArbo}/>}/>
-                <Route path="/products" element={<Products setCart={cartItemCount} addCart={setcartItemCount} setKwaliteitCount={setKwaliteitCount} countKwaliteit={countKwaliteit} setArboCount={setArboCount} countArbo={countArbo}/>}/>
+                <Route path="/" element={<Home setCart={cartItemCount} addCart={setcartItemCount} setKwaliteitCount={setKwaliteitCount} countKwaliteit={countKwaliteit} setArboCount={setArboCount} countArbo={countArbo} setPage="home"/>}/>
+                <Route path="/products" element={<Products setCart={cartItemCount} addCart={setcartItemCount} setKwaliteitCount={setKwaliteitCount} countKwaliteit={countKwaliteit} setArboCount={setArboCount} countArbo={countArbo} setPage="global"/>}/>
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
         </>

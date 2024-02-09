@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import {FaShoppingCart} from 'react-icons/fa';
 
 // eslint-disable-next-line react/prop-types
-function NavBar({isNav, setNav, isForm, setForm, setCart, setPage}) {
+function NavBar({isNav, setNav, isForm, setForm, setCart, setClass}) {
     const toggleMenu = () => {
         setNav(!isNav);
     };
@@ -14,7 +14,7 @@ function NavBar({isNav, setNav, isForm, setForm, setCart, setPage}) {
     return (
         <>
             <div className="header--nav">
-                <nav className={`${setPage} gsm menu--list ${isNav ? 'nav_open' : ''}`}>
+                <nav className={`${setClass} gsm menu--list ${isNav ? 'nav_open' : ''}`}>
                     <ul>
                         <li><NavLink to="/"
                                      className={({isActive}) => isActive === true ? 'nav-item active-link' : 'nav-item default-link'}

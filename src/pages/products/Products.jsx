@@ -3,18 +3,13 @@ import Product from "../../components/products/Product.jsx";
 import "./Products.css"
 import kwaliteit from "../../assets/images/kwaliteit.png";
 import arbo from "../../assets/images/arbo.png";
-import {useState} from "react";
 
 // eslint-disable-next-line react/prop-types
 function Products({setCart, addCart, setKwaliteitCount, countKwaliteit, setArboCount, countArbo}) {
 
-    //Checkt of er een product is toegevoegd aan het mandje
-    //const [countKwaliteit, setKwaliteitCount] = useState(0);
-    //const [countArbo, setArboCount] = useState(0);
-
     return (
         <>
-            <Header setCart={setCart}/>
+            <Header setCart={setCart} setClass="product"/>
 
             <main className="outer-container">
                 <section className="inner-container products">
