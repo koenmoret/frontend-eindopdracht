@@ -18,6 +18,7 @@
     --color-white: #FFF;
     --color-pink: #ED4385;
     --color-purple: #5B25CE;
+    --color-red: #ad2121;
     --color-black: #0C0C0C;
     --color-light-purple: #F2F0FF;
     --color-light-gray: #F3F6F9;
@@ -112,6 +113,10 @@ a:visited {
     color: var(--color-purple);
     text-decoration: none;
 }
+.text-danger {
+    color: var(--color-red);
+    font-weight: 300;
+}
 
 /*////////////////////////
     3. Areas
@@ -187,12 +192,12 @@ form {
 label {
     display: inline-block;
     margin: 0 5px;
-    transition: opacity 0.3s;
+    /*transition: opacity 0.3s;*/
 }
 /* Hide label on focus */
 .form-outline input:focus + label,
 .form-outline input:valid + label {
-    opacity: 0;
+    /*opacity: 0;*/
 }
 
 

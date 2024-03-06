@@ -2,10 +2,10 @@ import Header from "../../components/global/Header.jsx";
 import "./Home.css"
 
 // eslint-disable-next-line react/prop-types
-function Home({setCart}) {
+function Home({setLogged}) {
       return (
           <>
-              <Header setCart={setCart} setClass="home"/>
+              <Header setClass="home" setLogged={setLogged}/>
 
               {/*<main className="outer-container">*/}
               {/*    <div className="header--background_bottom"></div>*/}
