@@ -4,7 +4,7 @@ import LoginForm from "../global/Login.jsx";
 import RegisterForm from "../global/Register.jsx";
 
 // eslint-disable-next-line react/prop-types
-const Header = ({setCart,setClass}) => {
+const Header = ({setCart,setClass, setLogged}) => {
 
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [isLoginOpen, setIsLoginOpen] = useState(true);
@@ -16,9 +16,9 @@ const Header = ({setCart,setClass}) => {
             <div className={`header--background_overlay ${isNavOpen ? 'nav_open' : ''}`}></div>
             <section className="inner-container">
                 <NavBar isNav={isNavOpen} setNav={setIsNavOpen} isForm={isFormOpen} setForm={setIsFormOpen} setCart={setCart} setClass={setClass}/>
-                <div className={`forms ${isFormOpen ? 'form_open' : ''}`}>
+                <div id="registration" className={`forms ${isFormOpen ? 'form_open' : ''}`}>
                     <div className={`loginForm ${isLoginOpen ? 'login_open' : ''}`}>
-                        <LoginForm isLogin={isLoginOpen} setLogin={setIsLoginOpen} isRegister={isRegisterOpen} setRegister={setIsRegisterOpen}/>
+                        <LoginForm isLogin={isLoginOpen} setLogin={setIsLoginOpen} isRegister={isRegisterOpen} setRegister={setIsRegisterOpen} setLogged={setLogged}/>
                     </div>
                     <div className={`registerForm ${isRegisterOpen ? 'register_open' : ''}`}>
                         <RegisterForm isLogin={isLoginOpen} setLogin={setIsLoginOpen} isRegister={isRegisterOpen} setRegister={setIsRegisterOpen}/>
