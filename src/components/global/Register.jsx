@@ -5,7 +5,7 @@ import "./Register.css";
 import Validation from "../helpers/RegisterValidation.js";
 
 // eslint-disable-next-line react/prop-types
-function Register({isLogin, setLogin, isRegister, setRegister}) {
+function Register({isLoginFormOpen, setLoginFormOpen}) {
 
     const [values, setValues] = useState({
         fullName: "",
@@ -25,7 +25,7 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
         setErrors(err);
         if (err.fullName === "" && err.registerEmail === "" && err.registerPassword === "") {
             axios.post("http://localhost:8081/register", values)
-                .then(res => {toggleForm(isRegister, setRegister, isLogin, setLogin)})
+                .then(res => {toggleForm(isLoginFormOpen, setLoginFormOpen)})
                 .catch(err => console.log(err))
         }
     }
@@ -85,7 +85,7 @@ function Register({isLogin, setLogin, isRegister, setRegister}) {
                 {/*Register buttons*/}
                 <div className="text-center">
                     <p>Al een account? <span className="btn btn-primary"
-                                             onClick={() => toggleForm(isRegister, setRegister, isLogin, setLogin)}>Inloggen</span>
+                                             onClick={() => toggleForm(isLoginFormOpen, setLoginFormOpen)}>Inloggen</span>
                     </p>
                 </div>
             </form>

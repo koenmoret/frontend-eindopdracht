@@ -1,4 +1,3 @@
-
 import Header from "../../components/global/Header.jsx";
 import "./Dashboard.css"
 
@@ -10,7 +9,7 @@ function Dashboard() {
 
     return (
         <>
-            <Header />
+            <Header setClass="global dashboard" />
 
 
 

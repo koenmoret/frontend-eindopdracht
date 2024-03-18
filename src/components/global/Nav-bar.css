@@ -1,14 +1,22 @@
 :root {
     --color-black: #0C0C0C;
+    --color-white: #FFF;
 }
 .default-link {
     border-bottom: 1px solid transparent;
 }
 .active-link {
-    border-bottom: 1px solid var(--color-black);
+    border-bottom: 1px solid var(--color-white);
 }
 .fa-shopping-cart svg {
     font-size: 24px;
+    cursor: pointer;
+    fill: var(--color-white);
+}
+.fa-logout svg {
+    font-size: 24px;
+    cursor: pointer;
+    stroke: var(--color-white);
 }
 .cart-counter {
     display: flex;

@@ -1,5 +1,4 @@
-export function toggleForm(isRegister,setRegister,isLogin,setLogin){
-    setRegister(!isRegister);
-    setLogin(!isLogin);
+export function toggleForm(isLoginFormOpen, setLoginFormOpen){
+    setLoginFormOpen(!isLoginFormOpen);
 }
 

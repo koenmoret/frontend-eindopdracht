@@ -8,37 +8,45 @@ import Dashboard from "./pages/dashboard/Dashboard.jsx";
 
 import "./components/global/Global.css"
 
-export const LoggedIn = createContext("");
-export const CartItemCount = createContext("");
+//export const LoggedIn = createContext("");
+//export const SetLoggedIn = createContext("");
+export const Logging = createContext("");
+export const CartItems = createContext("");
 
 function App() {
 
-    const [cartItemCount, setcartItemCount] = useState(0);
-    const [countKwaliteit, setKwaliteitCount] = useState(0);
-    const [countArbo, setArboCount] = useState(0);
-    const [loggedIn, setLoggedIn] = useState("false");
+    const [cartItemCount, setCartItemCount] = useState(0);
+    const [productKwaliteit, setProductKwaliteit] = useState(0);
+    const [productArbo, setProductArbo] = useState(0);
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const logging = {
+        loggedIn: loggedIn,
+        setLoggedIn: setLoggedIn
+    }
+
+    const cartItems = {
+        getCartItemCount: cartItemCount,
+        setCartItemCount: setCartItemCount,
+        productKwaliteit: productKwaliteit,
+        setProductKwaliteit: setProductKwaliteit,
+        productArbo: productArbo,
+        setProductArbo: setProductArbo
+    }
 
     return (
         <>
-            <LoggedIn.Provider value={loggedIn}>
-                <CartItemCount.Provider value={cartItemCount}>
+            <Logging.Provider value={logging}>
+                <CartItems.Provider value={cartItems}>
                     <Routes>
-                        <Route path="/" element={<Home setCart={cartItemCount} addCart={setcartItemCount}
-                                                       setKwaliteitCount={setKwaliteitCount}
-                                                       countKwaliteit={countKwaliteit}
-                                                       setArboCount={setArboCount}
-                                                       countArbo={countArbo}
-                                                       setLogged={setLoggedIn}/>}/>
-                        <Route path="/products"
-                               element={<Products addCart={setcartItemCount} setKwaliteitCount={setKwaliteitCount}
-                                                  countKwaliteit={countKwaliteit} setArboCount={setArboCount}
-                                                  countArbo={countArbo} setLogged={setLoggedIn}/>}/>
-                        <Route path="/checkout" element={<Checkout/>}/>
-                        <Route path="/dashboard" element={<Dashboard/>}/>
+                        <Route path="/" element={<Home />}/>
+                        <Route path="/products" element={<Products  />}/>
+                        <Route path="/checkout" element={<Checkout />}/>
+                        <Route path="/dashboard" element={<Dashboard />}/>
                         <Route path="*" element={<NotFound/>}/>
                     </Routes>
-                </CartItemCount.Provider>
-            </LoggedIn.Provider>
+                </CartItems.Provider>
+            </Logging.Provider>
         </>
     )
 }

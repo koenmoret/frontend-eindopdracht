@@ -12,7 +12,13 @@
     1. Typography
 ////////////////////////*/
 .products .header--nav .nav-item {
-    color: var(--color-black);
+    /*color: var(--color-black);*/
+}
+.products .fa-shopping-cart svg  {
+    /*fill: var(--color-black);*/
+}
+.products .fa-checkout svg svg {
+    /*stroke: var(--color-black);*/
 }
 
 /*////////////////////////

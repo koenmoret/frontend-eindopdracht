@@ -1,11 +1,16 @@
 // eslint-disable-next-line react/prop-types
 import {useContext} from "react";
-import {CartItemCount} from "../../App.jsx";
+import {CartItems} from "../../App.jsx";
 
 // eslint-disable-next-line react/prop-types
-function Product({image, altText, title, text, addCart, count, setCount, disabled}) {
-    console.log(disabled);
-    const cartItemCount = useContext(CartItemCount);
+function Product({image, altText, title, text, disabled, product }) {
+
+    const cartItems = useContext(CartItems);
+
+    const handleAddCart = () => {
+        cartItems.setCartItemCount(cartItems.getCartItemCount + 1);
+        product(1);
+    }
 
     return (
         <>
@@ -13,7 +18,7 @@ function Product({image, altText, title, text, addCart, count, setCount, disable
                 <img src={image} alt={altText}/>
                 <h4>{title}</h4>
                 <p>{text}</p>
-                <button disabled={disabled} type="button" className="btn btn-primary" onClick={()=> {addCart(cartItemCount + 1); setCount(count + 1);} }>Aanschaffen 25,-</button>
+                <button disabled={disabled} type="button" className="btn btn-primary" onClick={()=> handleAddCart()}>Aanschaffen 25,-</button>
             </div>
         </>
     );
