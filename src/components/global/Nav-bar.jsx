@@ -40,15 +40,24 @@ function NavBar({isNav, setNav, isForm, setForm, setClass}) {
                         <li><NavLink to="/products"
                                      className={({isActive}) => isActive ? 'nav-item active-link' : 'nav-item default-link'}>Producten</NavLink>
                         </li>
-                        <li>{!logging.loggedIn ? <span className="nav-item" onClick={toggleForm}>Login</span> : <NavLink to="/dashboard" className={({isActive}) => isActive ? 'nav-item active-link' : 'nav-item default-link'}><span className="nav-item">Dashboard</span></NavLink>}</li>
-                            {/* Voeg hier het winkelmandje toe */}
-                        <li><NavLink to="/checkout" className={({isActive}) => isActive ? 'nav-item active-link' : 'nav-item default-link'}>
+                        <li><NavLink to="/libary"
+                                     className={({isActive}) => isActive ? 'nav-item active-link' : 'nav-item default-link'}>Producten</NavLink>
+                        </li>
+                        <li>{!logging.loggedIn ? <span className="nav-item" onClick={toggleForm}>Login</span> :
+                            <NavLink to="/dashboard"
+                                     className={({isActive}) => isActive ? 'nav-item active-link' : 'nav-item default-link'}><span
+                                className="nav-item">Dashboard</span></NavLink>}</li>
+                        {/* Voeg hier het winkelmandje toe */}
+                        <li><NavLink to="/checkout"
+                                     className={({isActive}) => isActive ? 'nav-item active-link' : 'nav-item default-link'}>
                             <span className="fa-shopping-cart">
                                 <FaShoppingCart/>
-                                {cartItems.getCartItemCount > 0 && <span className="cart-counter">{cartItems.getCartItemCount}</span>}
+                                {cartItems.getCartItemCount > 0 &&
+                                    <span className="cart-counter">{cartItems.getCartItemCount}</span>}
                         </span></NavLink>
                         </li>
-                        {logging.loggedIn  ? <li><span className="fa-logout" onClick={logOut}><TbLogout/></span></li> : ""}
+                        {logging.loggedIn ?
+                            <li><span className="fa-logout" onClick={logOut}><TbLogout/></span></li> : ""}
 
                     </ul>
                 </nav>
