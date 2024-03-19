@@ -5,9 +5,10 @@ import Products from "./pages/products/Products.jsx";
 import Checkout from "./pages/checkout/Checkout.jsx";
 import NotFound from "./pages/notFound/NotFound.jsx";
 import Dashboard from "./pages/dashboard/Dashboard.jsx";
+import NewsFeed from "./pages/newsfeed/NewsFeed.jsx";
 
 import "./components/global/Global.css"
-import Libary from "./pages/libary/Libary.jsx";
+
 
 //export const LoggedIn = createContext("");
 //export const SetLoggedIn = createContext("");
@@ -43,7 +44,8 @@ function App() {
                         <Route path="/" element={<Home />}/>
                         <Route path="/products" element={<Products  />}/>
                         <Route path="/checkout" element={<Checkout />}/>
-                        <Route path="/libary" element={<Libary />}/>
+                        <Route path="/news" element={<NewsFeed />}/>
+                        <Route path="/dashboard" element={<Dashboard />}/>
                         <Route path="*" element={<NotFound/>}/>
                     </Routes>
                 </CartItems.Provider>

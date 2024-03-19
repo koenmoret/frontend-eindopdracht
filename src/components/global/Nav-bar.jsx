@@ -40,8 +40,8 @@ function NavBar({isNav, setNav, isForm, setForm, setClass}) {
                         <li><NavLink to="/products"
                                      className={({isActive}) => isActive ? 'nav-item active-link' : 'nav-item default-link'}>Producten</NavLink>
                         </li>
-                        <li><NavLink to="/libary"
-                                     className={({isActive}) => isActive ? 'nav-item active-link' : 'nav-item default-link'}>Producten</NavLink>
+                        <li><NavLink to="/news"
+                                     className={({isActive}) => isActive ? 'nav-item active-link' : 'nav-item default-link'}>News</NavLink>
                         </li>
                         <li>{!logging.loggedIn ? <span className="nav-item" onClick={toggleForm}>Login</span> :
                             <NavLink to="/dashboard"
